@@ -17,7 +17,7 @@
   hosts: rhsm_servers
   tasks:
   - name: Register RHEL tu subscription manager
-    community.general.redhat_subscription:
+    redhat_subscription:
       state: present
       username: "{{ rhsm_username }}"
       password: "{{ rhsm_password }}"
