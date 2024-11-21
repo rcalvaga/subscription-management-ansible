@@ -1,0 +1,1 @@
+# subscription-management-ansible
