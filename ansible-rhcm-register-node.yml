@@ -1,0 +1,28 @@
+---
+- name: Register VM_IP Artifact
+  hosts: localhost
+  gather_facts: False
+  connection: local
+  
+  tasks:
+  - name: Save host data within a Group
+    add_host:
+      hostname: "{{ vm_ip }}"
+      groupname: rhsm_servers
+
+  - name: Wait for SSH to come up
+    wait_for: host={{ vm_ip }} port=22 delay=10 timeout=60
+
+- name: Register RHEL node to RHSM
+  hosts: rhsm_servers
+  tasks:
+  - name: Register RHEL tu subscription manager
+    community.general.redhat_subscription:
+      state: present
+      username: "{{ rhsm_username }}"
+      password: "{{ rhsm_password }}"
+      auto_attach: true
+    when: ansible_os_family == "RedHat"
+  
+
+  
