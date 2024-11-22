@@ -13,10 +13,10 @@
   - name: Wait for SSH to come up
     wait_for: host={{ vm_ip }} port=22 delay=10 timeout=60
 
-- name: Unregister RHEL node to RHSM
+- name: Unregister RHEL node from RHSM
   hosts: rhsm_servers
   tasks:
-  - name: Register RHEL tu subscription manager
+  - name: Unregister RHEL from subscription manager
     redhat_subscription:
       state: absent
       username: "{{ rhsm_username }}"
