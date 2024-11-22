@@ -16,7 +16,7 @@
 - name: Register RHEL node to RHSM
   hosts: rhsm_servers
   tasks:
-  - name: Register RHEL tu subscription manager
+  - name: Register RHEL to Subscription Manager
     redhat_subscription:
       state: present
       username: "{{ rhsm_username }}"
