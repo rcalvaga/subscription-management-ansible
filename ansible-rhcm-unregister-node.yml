@@ -16,7 +16,7 @@
 - name: Unregister RHEL node from RHSM
   hosts: rhsm_servers
   tasks:
-  - name: Unregister RHEL from subscription manager
+  - name: Unregister RHEL from Subscription Manager
     redhat_subscription:
       state: absent
       username: "{{ rhsm_username }}"
